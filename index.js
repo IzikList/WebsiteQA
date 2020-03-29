@@ -1,5 +1,10 @@
 'use strict';
 
+
+
+const qaSettings = {
+    baseURL: ''
+}
 const { Builder, By, Key, until } = require('selenium-webdriver');
 let webdriver = require('selenium-webdriver');
 let chrome = require('selenium-webdriver/chrome');
@@ -27,7 +32,7 @@ chrome.setDefaultService(new chrome.ServiceBuilder(chromedriver.path).build());
         await driver.sleep(2 * 1000);
         await driver.sleep(2 * 1000);
 
-        await driver.
+        // await driver.
 
         // await driver.('textarea[name="form_fields[field_2]"]', 'username');
         // await page.type('input[name="form_fields[field_3]"]', 'y.modiiin@gmail.com');
