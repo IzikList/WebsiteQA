@@ -94,8 +94,8 @@ function getQueryScriptAction(query, action) {
     // click(joinUsBtn)
     await driver.sleep(2 * 1000);
     checkPopupLoad()
-        .then(() => registrationForInvestor())
-        .then(() => registrationForPolicyHolder())
+        // .then(() => registrationForInvestor())
+        // .then(() => registrationForPolicyHolder())
         .then(() => checkFAQ())
         .then(() => driver.quit())
         .catch(e => console.log(e));
@@ -186,15 +186,15 @@ async function checkFAQ() {
     setText(investorFaqNameSelector, "Investor name");
     setText(investorFaqEmailSelector, regEmailForTest);
     setText(investorFaqQuestionSelector, "Investor question");
-    await driver.sleep(1000);
     click(investorFaqBtn);
-    await driver.sleep(1000);
+    await driver.sleep(2 * 1000);
 
     click(faqPhTab);
     setText(phFaqNameSelector, "ph name");
     setText(phFaqEmailSelector, regEmailForTest);
     setText(phFaqQuestionSelector, "ph question");
     click(phFaqBtn);
+    await driver.sleep(4000);
 }
 
 async function checkPopupLoad() {
