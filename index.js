@@ -94,8 +94,8 @@ function getQueryScriptAction(query, action) {
     // click(joinUsBtn)
     await driver.sleep(2 * 1000);
     checkPopupLoad()
-        // .then(() => registrationForInvestor())
-        // .then(() => registrationForPolicyHolder())
+        .then(() => registrationForInvestor())
+        .then(() => registrationForPolicyHolder())
         .then(() => checkFAQ())
         .then(() => driver.quit())
         .catch(e => console.log(e));
