@@ -32,10 +32,10 @@ const investorMessageSelector = '[name=\"form_fields[field_2]\"]';
 const investorPhoneSelector = '[name=\"form_fields[field_5]\"]';
 
 // policy holder tab
-const investorEmailSelectorTab2 = '#elementor-tab-content-1932 [name=\"form_fields[field_3]\"]';
-const investorNameSelectorTab2 = '#elementor-tab-content-1932 [name=\"form_fields[field_4]\"]';
-const investorMessageSelectorTab2 = '#elementor-tab-content-1932 [name=\"form_fields[field_2]\"]';
-const investorPhoneSelectorTab2 = '#elementor-tab-content-1932 [name=\"form_fields[field_5]\"]';
+const phEmailSelector = '#elementor-tab-content-1932 [name=\"form_fields[field_3]\"]';
+const phNameSelector = '#elementor-tab-content-1932 [name=\"form_fields[field_4]\"]';
+const phMessageSelector = '#elementor-tab-content-1932 [name=\"form_fields[field_2]\"]';
+const phPhoneSelector = '#elementor-tab-content-1932 [name=\"form_fields[field_5]\"]';
 const policyHolderTab = '#elementor-tab-title-1932';
 const policyHolderButtonSelector = '#elementor-tab-content-1932 [type="submit"]';
 
@@ -107,21 +107,18 @@ async function registrationForInvestor() {
 
         const fillFieldsAndSend = checkboxes => {
             setText(investorEmailSelector, regEmailForTest);
-            setText(investorMessageSelector, 'Izik Investor Message');
-            setText(investorNameSelector, 'IzikTestInvestor');
             setText(investorPhoneSelector, '0548197615');
 
 
             switch (checkboxes) {
+                case 0:
+                    setText(investorMessageSelector, 'Investor - no checkbox selected');
+                    setText(investorNameSelector, 'Investor - no checkbox selected');
+                    break;
                 case 1:
-                    click(investorKeepCB);
-                    break;
-                case 2:
                     click(investorTalkCB);
-                    break;
-                case 3:
-                    click(investorKeepCB);
-                    click(investorTalkCB);
+                    setText(investorMessageSelector, 'Investor - lets talk checkbox selected');
+                    setText(investorNameSelector, 'Investor - lets talk checkbox selected');
                     break;
                 default:
                     break;
@@ -130,9 +127,9 @@ async function registrationForInvestor() {
             click(investorButtonSelector);
 
         }
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 2; i++) {
             fillFieldsAndSend(i);
-            await driver.sleep(2 * 1000);
+            await driver.sleep(4 * 1000);
         }
         resolve()
     });
@@ -143,21 +140,18 @@ async function registrationForPolicyHolder() {
 
         const fillFieldsAndSend = checkboxes => {
             click(policyHolderTab);
-            setText(investorEmailSelectorTab2, regEmailForTest);
-            setText(investorMessageSelectorTab2, 'Izik PolicyHolder Message');
-            setText(investorNameSelectorTab2, 'IzikTestPolicyHolder');
-            setText(investorPhoneSelectorTab2, '0548197615');
+            setText(phEmailSelector, regEmailForTest);
+            setText(phPhoneSelector, '0548197615');
 
             switch (checkboxes) {
+                case 0:
+                    setText(phMessageSelector, 'PolicyHolder - no checkbox selected');
+                    setText(phNameSelector, 'PolicyHolder - no checkbox selected');
+                    break;
                 case 1:
-                    click(phInterestedCB);
-                    break;
-                case 2:
                     click(phTalkCB);
-                    break;
-                case 3:
-                    click(phInterestedCB);
-                    click(phTalkCB);
+                    setText(phMessageSelector, 'PolicyHolder - lets talk checkbox selected');
+                    setText(phNameSelector, 'PolicyHolder - lets talk checkbox selected');
                     break;
                 default:
                     break;
@@ -166,16 +160,10 @@ async function registrationForPolicyHolder() {
             click(policyHolderButtonSelector);
 
         }
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 2; i++) {
             fillFieldsAndSend(i);
-            await driver.sleep(2 * 1000);
+            await driver.sleep(4 * 1000);
         }
-
-
-
-        // find call checkbox 
-        // check v 
-        // click again
         resolve();
     })
 }
