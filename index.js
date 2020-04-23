@@ -9,9 +9,9 @@ const qafundingsSettings = {
 
 }
 
-const settings = qaSettlementsSettings;
-const BASE_URL = qaSettlementsSettings.baseURL;
-const FAQ_URL = qaSettlementsSettings.faqURL;
+const settings = qafundingsSettings;
+const BASE_URL = settings.baseURL;
+const FAQ_URL = settings.faqURL;
 
 
 const { Builder, By, Key, until } = require('selenium-webdriver');
