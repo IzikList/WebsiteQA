@@ -5,8 +5,8 @@ const qaSettlementsSettings = {
     faqURL: 'https://listfunding.com/FAQ/'
 }
 const qafundingsSettings = {
-    baseURL: 'https://listfunding.com/'
-
+    baseURL: 'https://listfunding.com/',
+    faqURL: 'https://listfunding.com/FAQ/'
 }
 
 const settings = qafundingsSettings;
